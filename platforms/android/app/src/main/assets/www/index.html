@@ -14,6 +14,7 @@
       href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/index.css" />
     <style>
       #map {
         height: 800px;
@@ -31,14 +32,24 @@
           app
         >
           <v-list dense>
-            <template v-for="item in items">
-              <v-list-item :key="item.text" link>
+            <template>
+              <v-list-item link>
                 <v-list-item-action>
-                  <v-icon>{{ item.icon }}</v-icon>
+                  <v-icon>mdi-contacts</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{ item.text }}
+                    <a id="contact-page" href="contact.html">Contacts </a>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-list-item link>
+                <v-list-item-action>
+                  <v-icon>mdi-content-copy</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    <a href="contact.html">Pharma </a>
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -54,7 +65,7 @@
         >
           <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
           <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-            <span class="title">Tik Info2020</span>
+            <span class="title">Tik AmineInfo2020</span>
           </v-toolbar-title>
           <v-text-field
             append-icon="mdi-target"
@@ -79,7 +90,7 @@
 
         <div id="map" class="my-7"></div>
         <v-btn
-        title="get the closest"
+          title="get the closest"
           bottom
           color="primary"
           dark
