@@ -17,7 +17,7 @@ new Vue({
     drawer: false,
     option: { zoom: 13, center: { lat: 35.8060493, lng: 10.6106043 } },
     items: [
-      { icon: "mdi-contacts", text: "Contacts" },
+      { icon: "mdi-contacts", text: "Contacts"},
       { icon: "mdi-content-copy", text: "Pharma" }
     ],
     places: [],
