@@ -24,6 +24,13 @@
   </head>
   <body>
     <div id="app">
+      <div class="cont" v-if="load">
+        <div class="containeranim">
+          <div class="dot dot-1"></div>
+          <div class="dot dot-2"></div>
+          <div class="dot dot-3"></div>
+        </div>
+      </div>
       <v-app dark>
         <v-navigation-drawer
           v-model="drawer"
@@ -86,29 +93,29 @@
             /></v-avatar>
           </v-btn>
         </v-app-bar>
-        <h3>My Google Maps Demo</h3>
+        <v-content>
+          <div id="map"></div>
+          <v-btn
+            title="get the closest"
+            bottom
+            color="primary"
+            dark
+            fab
+            fixed
+            right
+            @click="getClosest"
+          >
+            <v-icon>mdi-target</v-icon>
+          </v-btn>
 
-        <div id="map" class="my-7"></div>
-        <v-btn
-          title="get the closest"
-          bottom
-          color="primary"
-          dark
-          fab
-          fixed
-          right
-          @click="getClosest"
-        >
-          <v-icon>mdi-target</v-icon>
-        </v-btn>
-
-        <v-divider></v-divider>
-        <v-footer padless>
-          <v-col class="text-center" cols="12">
-            All rights reserved © {{ new Date().getFullYear() }} —
-            <strong>KmAmin</strong>
-          </v-col>
-        </v-footer>
+          <v-divider></v-divider>
+          <v-footer padless>
+            <v-col class="text-center" cols="12">
+              All rights reserved © {{ new Date().getFullYear() }} —
+              <strong>KmAmin</strong>
+            </v-col>
+          </v-footer>
+        </v-content>
       </v-app>
     </div>
 

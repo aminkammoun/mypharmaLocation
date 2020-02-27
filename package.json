@@ -15,6 +15,7 @@
   "dependencies": {
     "cordova-android": "^8.1.0",
     "cordova-plugin-geolocation": "^4.0.2",
+    "cordova-plugin-splashscreen": "^5.0.3",
     "google-maps": "^4.2.3"
   },
   "devDependencies": {
@@ -23,7 +24,8 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-geolocation": {}
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-splashscreen": {}
     },
     "platforms": [
       "android"

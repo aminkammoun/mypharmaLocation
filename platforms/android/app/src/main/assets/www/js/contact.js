@@ -1,16 +1,16 @@
-
 new Vue({
   el: "#app",
   vuetify: new Vuetify(),
   data: {
-    name:"",
-    lastname:"",
-    mail:"",
-    description:"",
+    name: "",
+    lastname: "",
+    mail: "",
+    description: "",
     loader: null,
     loading: false,
     q: "",
-    drawer: false
+    drawer: false,
+    load: true
   },
   watch: {
     loader() {
@@ -21,5 +21,11 @@ new Vue({
 
       this.loader = null;
     }
-  }
+  },
+  created() {
+    setTimeout(() => {
+      this.load = false;
+    }, 2000);
+  },
+  methods: {}
 });

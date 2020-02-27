@@ -20,9 +20,25 @@
         width: 100%;
       }
     </style>
+    <script src="https://unpkg.com/vuefire@1.3.0/dist/vuefire.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEKqAbwXitNuWVIXaIJ60kd33svzZY4nE"
+    ></script>
   </head>
   <body>
-    <div id="app">
+    <div class="page " id="app">
+      <div class="cont" v-if="load">
+        <div class="containeranim">
+          <div class="dot dot-1"></div>
+          <div class="dot dot-2"></div>
+          <div class="dot dot-3"></div>
+        </div>
+      </div>
       <v-app dark>
         <v-navigation-drawer
           v-model="drawer"
@@ -79,70 +95,73 @@
             /></v-avatar>
           </v-btn>
         </v-app-bar>
-        <v-container class="mt-12">
-          <h1 center>
-            contact uS
-          </h1>
-          <v-form>
-            <v-row>
-              <v-col cols="12" md="6">
-                <v-text-field
-                  label="Outlined"
-                  outlined
-                  v-model="name"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6">
-                <v-text-field
-                  label="Outlined"
-                  outlined
-                  v-model="lastname"
-                ></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="12" md="12">
-                <v-text-field
-                  label="Outlined"
-                  outlined
-                  v-model="mail"
-                ></v-text-field>
-              </v-col>
-            </v-row>
-
-            <v-row
-              ><v-col cols="12" md="12">
-                <v-textarea
-                  outlined
-                  name="input-7-4"
-                  label="Outlined textarea"
-                  v-model="description"
-                ></v-textarea>
-              </v-col>
-            </v-row>
-            <v-btn
-              centered
-              :loading="loading"
-              :disabled="loading"
-              color="secondary"
-              @click="loader = 'loading'"
-            >
-              Accept Terms
-            </v-btn>
-          </v-form>
-        </v-container>
+        <v-content>
+          <v-container>
+            <h1 class="title py-4">
+              contact uS
+            </h1>
+            <v-divider></v-divider>
+            <v-form>
+              <v-row>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    label="name"
+                    hide-details
+                    outlined
+                    v-model="name"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    hide-details
+                    label="lastname"
+                    outlined
+                    v-model="lastname"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="12" md="12">
+                  <v-text-field
+                    hide-details
+                    label="Email"
+                    outlined
+                    v-model="mail"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-file-input
+                hide-details
+                label="File input"
+                filled
+                prepend-icon="mdi-camera"
+              ></v-file-input>
+              <v-row
+                ><v-col cols="12" md="12">
+                  <v-textarea
+                    hide-details
+                    outlined
+                    name="input-7-4"
+                    label="describ your need here"
+                    v-model="description"
+                  ></v-textarea>
+                </v-col>
+              </v-row>
+              <v-btn
+                centered
+                :loading="loading"
+                :disabled="loading"
+                color="secondary"
+                @click="loader = 'loading'"
+              >
+                declare
+              </v-btn>
+            </v-form>
+          </v-container>
+        </v-content>
       </v-app>
     </div>
-    <script src="https://unpkg.com/vuefire@1.3.0/dist/vuefire.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEKqAbwXitNuWVIXaIJ60kd33svzZY4nE"
-    ></script>
     <script src="./js/contact.js"></script>
   </body>
 </html>

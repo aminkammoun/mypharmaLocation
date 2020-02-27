@@ -17,7 +17,7 @@ new Vue({
     drawer: false,
     option: { zoom: 13, center: { lat: 35.8060493, lng: 10.6106043 } },
     items: [
-      { icon: "mdi-contacts", text: "Contacts"},
+      { icon: "mdi-contacts", text: "Contacts" },
       { icon: "mdi-content-copy", text: "Pharma" }
     ],
     places: [],
@@ -27,10 +27,14 @@ new Vue({
     closest: Number,
     img: "../img/pharmacy.png",
     map: "",
-    distance: ""
+    distance: "",
+    load: true
   },
   created() {
     this.getPlaces();
+    setTimeout(() => {
+      this.load = false;
+    }, 2000);
   },
   methods: {
     infoWindow() {
@@ -98,10 +102,9 @@ new Vue({
           this.places[this.closest].name +
           " a la moin courte distance de  " +
           this.distance +
-          "m "
+          "km "
       );
       console.log(this.places);
-
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(
           this.places[this.closest].x,
@@ -111,6 +114,7 @@ new Vue({
         map: this.map,
         icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
       });
+
       this.places.splice(this.closest, 1);
       console.log(this.places);
     },
@@ -146,5 +150,25 @@ new Vue({
       }
       this.distance = minDif.toFixed(2);
     }
+    // calculRoute() {
+    //   var directionDisplay = new google.maps.DirectionsRenderer();
+    //   var directionService = new google.maps.DirectionsService();
+
+    //   var ss = new google.maps.LatLng(this.src, this.des);
+
+    //   var dd = new google.maps.LatLng(
+    //     this.places[this.closest].x,
+    //     this.places[this.closest].y
+    //   );
+
+    //   var request = {
+    //     origin: ss,
+    //     destination: dd,
+    //     travelMode: "DRIVING"
+    //   };
+    //   directionService.route(request, function(result, request) {
+    //     console.log(result, request);
+    //   });
+    // }
   }
 });

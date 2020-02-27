@@ -12,6 +12,9 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.pharmacie.io"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.pharmacie.io"
     }
   },
   "dependent_plugins": {}

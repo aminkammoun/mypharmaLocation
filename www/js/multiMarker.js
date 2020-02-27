@@ -27,10 +27,14 @@ new Vue({
     closest: Number,
     img: "../img/pharmacy.png",
     map: "",
-    distance: ""
+    distance: "",
+    load: true
   },
   created() {
     this.getPlaces();
+    setTimeout(() => {
+      this.load = false;
+    }, 2000);
   },
   methods: {
     infoWindow() {
