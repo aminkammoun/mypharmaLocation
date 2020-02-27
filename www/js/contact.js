@@ -1,12 +1,11 @@
-
 new Vue({
   el: "#app",
   vuetify: new Vuetify(),
   data: {
-    name:"",
-    lastname:"",
-    mail:"",
-    description:"",
+    name: "",
+    lastname: "",
+    mail: "",
+    description: "",
     loader: null,
     loading: false,
     q: "",
@@ -21,5 +20,7 @@ new Vue({
 
       this.loader = null;
     }
-  }
+  },
+  created() {},
+  methods: {}
 });

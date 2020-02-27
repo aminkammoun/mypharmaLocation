@@ -87,14 +87,14 @@
             <v-row>
               <v-col cols="12" md="6">
                 <v-text-field
-                  label="Outlined"
+                  label="name"
                   outlined
                   v-model="name"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
-                  label="Outlined"
+                  label="lastname"
                   outlined
                   v-model="lastname"
                 ></v-text-field>
@@ -103,19 +103,23 @@
             <v-row>
               <v-col cols="12" md="12">
                 <v-text-field
-                  label="Outlined"
+                  label="Email"
                   outlined
                   v-model="mail"
                 ></v-text-field>
               </v-col>
             </v-row>
-
+            <v-file-input
+              label="File input"
+              filled
+              prepend-icon="mdi-camera"
+            ></v-file-input>
             <v-row
               ><v-col cols="12" md="12">
                 <v-textarea
                   outlined
                   name="input-7-4"
-                  label="Outlined textarea"
+                  label="describ your need here"
                   v-model="description"
                 ></v-textarea>
               </v-col>
@@ -127,7 +131,7 @@
               color="secondary"
               @click="loader = 'loading'"
             >
-              Accept Terms
+              declare
             </v-btn>
           </v-form>
         </v-container>
