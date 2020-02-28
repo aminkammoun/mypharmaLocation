@@ -24,6 +24,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+
     <script
       async
       defer
@@ -93,6 +95,7 @@
               <v-row>
                 <v-col cols="12" md="6">
                   <v-text-field
+                    id="Name"
                     label="name"
                     hide-details
                     outlined
@@ -102,6 +105,7 @@
                 <v-col cols="12" md="6">
                   <v-text-field
                     hide-details
+                    id="lastName"
                     label="lastname"
                     outlined
                     v-model="lastname"
@@ -112,6 +116,7 @@
                 <v-col cols="12" md="12">
                   <v-text-field
                     hide-details
+                    id="Email"
                     label="Email"
                     outlined
                     v-model="mail"
@@ -127,6 +132,7 @@
               <v-row
                 ><v-col cols="12" md="12">
                   <v-textarea
+                    id="Des"
                     hide-details
                     outlined
                     name="input-7-4"
@@ -140,7 +146,7 @@
                 :loading="loading"
                 :disabled="loading"
                 color="secondary"
-                @click="loader = 'loading'"
+                @click="contactForm"
               >
                 declare
               </v-btn>
@@ -155,6 +161,10 @@
         </v-col>
       </v-footer>
     </div>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"
+    ></script>
 
     <script src="./js/contact.js"></script>
   </body>
