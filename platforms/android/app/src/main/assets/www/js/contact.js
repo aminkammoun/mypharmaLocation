@@ -20,7 +20,9 @@ new Vue({
     loading: false,
     q: "",
     drawer: false,
-    load: true
+    load: true,
+    snackbar: false,
+    text: "please fill all the field"
   },
   watch: {
     loader() {
@@ -35,48 +37,31 @@ new Vue({
   created() {
     setTimeout(() => {
       this.load = false;
-    }, 2000);
+    }, 3000);
   },
   methods: {
     contactForm(e) {
-      this.loader = this.loading;
       e.preventDefault();
       var name = document.getElementById("Name").value;
       var lastname = document.getElementById("lastName").value;
       var Email = document.getElementById("Email").value;
       var Decription = document.getElementById("Des").value;
       this.saveForm(name, lastname, Email, Decription);
-      emailjs
-        .send("gmail", "<template_name>", {
-          //template_name is set via emailjs.com dashboard
-          content: Email // you can store user data in any such variable
-        })
-        .then(
-          function(response) {
-            document.write("Email sent successfully!");
-          },
-          function(error) {
-            document.write("Failed to send email.");
-            console.log(error);
-          }
-        );
     },
     saveForm(name, lastname, Email, Decription) {
       if ((name != "" && lastname != "" && Email != "", Decription != "")) {
-        var contactRef = firebase
-          .database()
-          .ref()
-          .child("contactForm");
-
-        contactRef.set({
+        var contactRef = firebase.database().ref("contactForm");
+        var data = {
           Name: name,
           LastName: lastname,
           Email: Email,
           Description: Decription
-        });
+        };
+
+        contactRef.push(data);
         alert(name, lastname, Email, Decription);
       } else {
-        alert("Please fill all the fields.");
+        this.snackbar = true;
       }
     }
   }
