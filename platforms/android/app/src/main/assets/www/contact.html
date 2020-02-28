@@ -58,18 +58,6 @@
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item link>
-                <v-list-item-action>
-                  <v-icon>mdi-content-copy</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    <a id="lien-href" href="declareMed.html"
-                      >declare Medicament
-                    </a>
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
               <v-divider></v-divider>
             </template>
           </v-list>
@@ -82,7 +70,7 @@
         >
           <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
           <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-            <span class="title">Tik AmineInfo2020</span>
+            <span class="title">Tik Info2020</span>
           </v-toolbar-title>
 
           <v-spacer></v-spacer>
@@ -98,7 +86,7 @@
         <v-content>
           <v-container>
             <h1 class="title py-4">
-              contact uS
+              contact us
             </h1>
             <v-divider></v-divider>
             <v-form>
@@ -160,6 +148,12 @@
           </v-container>
         </v-content>
       </v-app>
+      <v-footer padless>
+        <v-col class="text-center" cols="12">
+          All rights reserved © {{ new Date().getFullYear() }} —
+          <strong>KmAmin</strong>
+        </v-col>
+      </v-footer>
     </div>
 
     <script src="./js/contact.js"></script>

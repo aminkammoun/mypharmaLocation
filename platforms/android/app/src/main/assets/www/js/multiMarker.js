@@ -31,10 +31,12 @@ new Vue({
     load: true
   },
   created() {
+    
     this.getPlaces();
     setTimeout(() => {
       this.load = false;
     }, 2000);
+
   },
   methods: {
     infoWindow() {
