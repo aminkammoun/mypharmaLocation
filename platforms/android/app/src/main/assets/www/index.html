@@ -106,6 +106,12 @@
           >
             <v-icon>mdi-target</v-icon>
           </v-btn>
+          <v-snackbar v-model="snackbar" :vertical="vertical">
+            {{ text }}
+            <v-btn color="indigo" text @click="snackbar = false">
+              Close
+            </v-btn>
+          </v-snackbar>
 
           <v-divider></v-divider>
           <v-footer padless>

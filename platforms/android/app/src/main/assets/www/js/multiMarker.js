@@ -28,15 +28,15 @@ new Vue({
     img: "../img/pharmacy.png",
     map: "",
     distance: "",
-    load: true
+    load: true,
+    text: "",
+    snackbar: false
   },
   created() {
-    
     this.getPlaces();
     setTimeout(() => {
       this.load = false;
     }, 2000);
-
   },
   methods: {
     infoWindow() {
@@ -99,13 +99,13 @@ new Vue({
     },
     getClosest() {
       this.NearestCity(this.src, this.des);
-      alert(
+      this.snackbar = true;
+      this.text =
         "la pharmacie de " +
-          this.places[this.closest].name +
-          " a la moin courte distance de  " +
-          this.distance +
-          "km "
-      );
+        this.places[this.closest].name +
+        " a la moin courte distance de  " +
+        this.distance +
+        "km ";
       console.log(this.places);
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(
