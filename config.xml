@@ -2,7 +2,7 @@
 <widget id="com.pharmacie.io" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>myPharmaLocation</name>
     <platform name="android">
-    <splash src="www/img/a96e2fde6aa4a147ff0b96c5fd9e0da9.png" ></splash>
+    <splash src="www/img/myPharma.jpg" ></splash>
     </platform>
     <preference name="SplashScreen" value="screen">      
     </preference>

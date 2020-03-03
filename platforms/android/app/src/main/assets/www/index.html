@@ -30,6 +30,7 @@
           <div class="dot dot-2"></div>
           <div class="dot dot-3"></div>
         </div>
+        <h2>Loading ...</h2>
       </div>
       <v-app dark>
         <v-navigation-drawer
@@ -50,16 +51,6 @@
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item link>
-                <v-list-item-action>
-                  <v-icon>mdi-content-copy</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    <a href="contact.html">Pharma </a>
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
               <v-divider></v-divider>
             </template>
           </v-list>
@@ -67,12 +58,12 @@
         <v-app-bar
           :clipped-left="$vuetify.breakpoint.lgAndUp"
           app
-          color="primary darken-1"
+          color="#900c3e"
           dark
         >
           <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
           <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-            <span class="title">Tik Info2020</span>
+            <span class="title">My PharmaLocation</span>
           </v-toolbar-title>
           <v-text-field
             append-icon="mdi-target"
@@ -97,7 +88,7 @@
           <v-btn
             title="get the closest"
             bottom
-            color="primary"
+            color="#ffcc00"
             dark
             fab
             fixed
@@ -108,7 +99,7 @@
           </v-btn>
           <v-snackbar v-model="snackbar" :vertical="vertical">
             {{ text }}
-            <v-btn color="indigo" text @click="snackbar = false">
+            <v-btn color="#ffcc00" text @click="snackbar = false">
               Close
             </v-btn>
           </v-snackbar>

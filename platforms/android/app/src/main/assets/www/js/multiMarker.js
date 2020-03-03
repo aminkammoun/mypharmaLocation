@@ -25,7 +25,6 @@ new Vue({
     des: "",
     pos: [],
     closest: Number,
-    img: "../img/pharmacy.png",
     map: "",
     distance: "",
     load: true,
@@ -59,7 +58,7 @@ new Vue({
           position: new google.maps.LatLng(this.places[i].x, this.places[i].y),
           map: this.map,
           title: "pharmacie " + this.places[i].name,
-          icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+          icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
         });
         this.infoWindow();
       }

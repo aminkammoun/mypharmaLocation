@@ -67,12 +67,12 @@
         <v-app-bar
           :clipped-left="$vuetify.breakpoint.lgAndUp"
           app
-          color="primary darken-1"
+          color="#900c3e"
           dark
         >
           <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
           <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-            <span class="title">Tik Info2020</span>
+            <span class="title">My PharamLocation</span>
           </v-toolbar-title>
 
           <v-spacer></v-spacer>
@@ -144,7 +144,7 @@
               <v-btn
                 :loading="loading"
                 :disabled="loading"
-                color="secondary"
+                color="#900c3e"
                 @click="contactForm"
               >
                 declare
