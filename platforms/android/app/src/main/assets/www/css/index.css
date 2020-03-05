@@ -200,8 +200,6 @@ a:visited {
 }
 
 .garde span {
-  color: #00ff00;
-
   animation-name: blink;
   animation-duration: 1.4s;
   animation-iteration-count: infinite;

@@ -29,7 +29,8 @@ new Vue({
     distance: "",
     load: true,
     text: "",
-    snackbar: false
+    snackbar: false,
+    ouvert : false
   },
   created() {
     this.getPlaces();
@@ -68,10 +69,11 @@ new Vue({
       var seconds = +a[0] * 60 * 60 + +a[1] * 60 + +a[2];
       var seconds1 = +b[0] * 60 * 60 + +b[1] * 60 + +b[2];
       var seconds2 = +c[0] * 60 * 60 + +c[1] * 60 + +c[2];
+      if (seconds > seconds1 && seconds < seconds2) {
+        this.ouvert = true;
+      }
 
       for (i = 0; i < this.places.length; i++) {
-        console.log("hello");
-        if (seconds > seconds1 && seconds < seconds2) {
           marker = new google.maps.Marker({
             position: new google.maps.LatLng(
               this.places[i].x,
@@ -81,17 +83,6 @@ new Vue({
             title: "pharmacie " + this.places[i].name,
             icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
           });
-        } else {
-          marker = new google.maps.Marker({
-            position: new google.maps.LatLng(
-              this.places[i].x,
-              this.places[i].y
-            ),
-            map: this.map,
-            title: "pharmacie " + this.places[i].name,
-            icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
-          });
-        }
 
         this.infoWindow();
       }

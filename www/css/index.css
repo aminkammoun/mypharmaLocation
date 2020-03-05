@@ -1,5 +1,4 @@
-a:link,
-a:visited {
+a{
   color: #1e1e1e;
   padding: 14px 25px;
   text-align: center;
@@ -200,8 +199,6 @@ a:visited {
 }
 
 .garde span {
-  color: #00ff00;
-
   animation-name: blink;
   animation-duration: 1.4s;
   animation-iteration-count: infinite;
