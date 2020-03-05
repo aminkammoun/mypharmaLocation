@@ -30,7 +30,6 @@
           <div class="dot dot-2"></div>
           <div class="dot dot-3"></div>
         </div>
-        <h2>Loading ...</h2>
       </div>
       <v-app dark>
         <v-navigation-drawer
@@ -42,16 +41,54 @@
           <v-list dense>
             <template>
               <v-list-item link>
-                <v-list-item-action>
-                  <v-icon>mdi-contacts</v-icon>
-                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    <a href="index.html">Home </a>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider></v-divider>
+              <v-list-item
+                :class="{ouvertstyle :ouvert, 'closestyle': !ouvert}"
+                link
+              >
+                <v-list-item-content>
+                  <v-list-item-title>
+                    <a href="phDeJour.html">les pharmacie de jour </a>
+                    <span>.</span>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider></v-divider>
+              <v-list-item
+                class="garde"
+                :class="{ouvertstyle :!ouvert, 'closestyle': ouvert}"
+                link
+              >
+                <v-list-item-content>
+                  <v-list-item-title>
+                    <a href="phDeNuit.html">les pharmacies de nuit</a
+                    ><span>.</span>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider></v-divider>
+              <v-list-item class="garde" link>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    <a href="phDeGarde.html">les pharmacies de Garde </a>
+                    <span>.</span><span>.</span><span>.</span>
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+              <v-divider></v-divider>
+              <v-list-item link>
                 <v-list-item-content>
                   <v-list-item-title>
                     <a id="contact-page" href="contact.html">Contacts </a>
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-divider></v-divider>
             </template>
           </v-list>
         </v-navigation-drawer>

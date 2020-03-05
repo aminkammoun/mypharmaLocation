@@ -25,11 +25,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEKqAbwXitNuWVIXaIJ60kd33svzZY4nE"
-    ></script>
+      <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    
   </head>
   <body>
     <div id="app">
@@ -51,34 +48,59 @@
       >
         <v-list dense>
           <template>
+            
             <v-list-item link>
-              <v-list-item-action>
-                <v-icon>mdi-contacts</v-icon>
-              </v-list-item-action>
+              
+              <v-list-item-content>
+                <v-list-item-title>
+                  <a href="index.html">Home </a>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item :class="{ouvertstyle :ouvert, 'closestyle': !ouvert}" link>
+              
+              <v-list-item-content>
+                <v-list-item-title>
+                  <a href="phDeJour.html">les pharmacie de jour </a> <span>.</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item :class="{ouvertstyle :!ouvert, 'closestyle': ouvert}" link>
+              
+              <v-list-item-content>
+                <v-list-item-title>
+                  <a href="phDeNuit.html">les pharmacies de nuit</a><span>.</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item class="garde" link>
+              
+              <v-list-item-content>
+                <v-list-item-title>
+                  <a href="phDeGarde.html">les pharmacies de Garde </a> <span>.</span><span>.</span><span>.</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item link>
+              
               <v-list-item-content>
                 <v-list-item-title>
                   <a id="contact-page" href="contact.html">Contacts </a>
                 </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
-            <v-list-item link>
-              <v-list-item-action>
-                <v-icon>mdi-content-copy</v-icon>
-              </v-list-item-action>
-              <v-list-item-content>
-                <v-list-item-title>
-                  <a href="contact.html">Pharma </a>
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider></v-divider>
+            
           </template>
         </v-list>
       </v-navigation-drawer>
       <v-app-bar
         :clipped-left="$vuetify.breakpoint.lgAndUp"
         app
-        color="primary darken-1"
+        color="#900c3e"
         dark
       >
         <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
@@ -104,13 +126,41 @@
           /></v-avatar>
         </v-btn>
       </v-app-bar>
-    <h1>hello contact</h1>
+      <<v-content>
+        <h1>  Liste des pharmacie de jour</h1>
+      <div>
+        <v-subheader
+        >Today</v-subheader>
+         <v-list three-line>
+      <template v-for="(time, index) in times">
+        <v-list-item
+        v-if="time.cat == 'garde'"
+          :key="index"
+          @click=""
+          outline
+        >
+          <v-list-item-content>
+            <v-card-actions>
+              nom de pharmacie : {{time.name}}
+            </v-card-actions>
+            <v-card-actions>
+              temps de travail : {{time.ouvre}} h - {{time.ferme}} h
+            </v-card-actions>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
+    </v-list>
+      </div>
+      
+      </v-content>
+    
   
 
     
     </div>
     
-    <script src="./js/contact.js"></script>
+    
 
   </body>
+  <script src="./js/phDeNuit.js"></script>
 </html>

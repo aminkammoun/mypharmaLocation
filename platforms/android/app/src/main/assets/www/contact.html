@@ -25,12 +25,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEKqAbwXitNuWVIXaIJ60kd33svzZY4nE"
-    ></script>
   </head>
   <body>
     <div id="app">
@@ -49,20 +43,55 @@
           app
         >
           <v-list dense>
-            <template>
-              <v-list-item link>
-                <v-list-item-action>
-                  <v-icon>mdi-contacts</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    <a id="lien-href" href="index.html">Home </a>
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-              <v-divider></v-divider>
-            </template>
-          </v-list>
+          <template>
+            
+            <v-list-item link>
+              
+              <v-list-item-content>
+                <v-list-item-title>
+                  <a href="index.html">Home </a>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item :class="{ouvertstyle :ouvert, 'closestyle': !ouvert}" link>
+              
+              <v-list-item-content>
+                <v-list-item-title>
+                  <a href="phDeJour.html">les pharmacie de jour </a> <span>.</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item class="garde" :class="{ouvertstyle :!ouvert, 'closestyle': ouvert}" link>
+              
+              <v-list-item-content>
+                <v-list-item-title>
+                  <a href="phDeNuit.html">les pharmacies de nuit</a><span>.</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item class="garde" link>
+              
+              <v-list-item-content>
+                <v-list-item-title>
+                  <a href="phDeGarde.html">les pharmacies de Garde </a> <span>.</span><span>.</span><span>.</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item link>
+              
+              <v-list-item-content>
+                <v-list-item-title>
+                  <a id="contact-page" href="contact.html">Contacts </a>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            
+          </template>
+        </v-list>
         </v-navigation-drawer>
         <v-app-bar
           :clipped-left="$vuetify.breakpoint.lgAndUp"
@@ -147,7 +176,9 @@
                 color="#900c3e"
                 @click="contactForm"
               >
-                declare
+                <span color="white">
+                  declare
+                </span>
               </v-btn>
               <v-snackbar v-model="snackbar">
                 {{ text }}
@@ -166,11 +197,11 @@
         </v-col>
       </v-footer>
     </div>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"
-    ></script>
-
-    <script src="./js/contact.js"></script>
   </body>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"
+  ></script>
+  <script src="./js/contact.js"></script>
+  <script src="./js/phDeNuit.js"></script>
 </html>
