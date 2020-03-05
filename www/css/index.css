@@ -227,9 +227,4 @@ a{
   animation-iteration-count: infinite;
   animation-fill-mode: both;
 }
-.closestyle span {
-  animation-name: blink;
-  animation-duration: 1.4s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-}
+

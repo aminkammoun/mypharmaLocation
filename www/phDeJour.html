@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      href="./css/vuetify.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/index.css" />
@@ -20,12 +20,11 @@
         width: 100%;
       }
     </style>
-    <script src="https://unpkg.com/vuefire@1.3.0/dist/vuefire.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="./config/js/vuefire.js"></script>
+    <script src="./config/js/firebase.js"></script>
+    <script src="./config/js/axios.min.js"></script>
+    <script src="./config/js/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
     
   </head>
   <body>
@@ -62,7 +61,7 @@
               
               <v-list-item-content>
                 <v-list-item-title>
-                  <a href="phDeJour.html">les pharmacie de jour </a> <span>.</span>
+                  <a href="phDeJour.html">les pharmacies de jour </a> <span>.</span>
                 </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
@@ -126,7 +125,8 @@
           /></v-avatar>
         </v-btn>
       </v-app-bar>
-      <<v-content>
+      <v-content>
+        <v-container>
         <h1>  Liste des pharmacie de jour</h1>
       <div>
         <v-subheader
@@ -146,11 +146,16 @@
             <v-card-actions>
               temps de travail : {{time.ouvre}} h - {{time.ferme}} h
             </v-card-actions>
+            <v-card-actions>
+              N° telephone : {{time.tel}}
+            </v-card-actions>
           </v-list-item-content>
         </v-list-item>
+        <v-divider></v-divider>
       </template>
     </v-list>
       </div>
+    </vcontainer>
       
       </v-content>
     
