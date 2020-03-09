@@ -27,15 +27,18 @@
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
   </head>
   <body>
-    <div id="app">
-      <div>
-        <div class="cont" v-if="load">
-          <div class="containeranim">
-            <div class="dot dot-1"></div>
-            <div class="dot dot-2"></div>
-            <div class="dot dot-3"></div>
+    <div id="app" class="draw">
+      <div class="cont" v-if="load">
+        <div class="load-wrapp">
+          <div class="load-3">
+              
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
           </div>
-        </div>
+      </div>
+      </div>
+        
 
     <v-app dark>
       <v-navigation-drawer
@@ -96,24 +99,15 @@
         </v-list>
       </v-navigation-drawer>
       <v-app-bar
-        :clipped-left="$vuetify.breakpoint.lgAndUp"
-        app
-        color="#900c3e"
-        dark
-      >
-        <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
-        <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-          <span class="title">Tik AmineInfo2020</span>
-        </v-toolbar-title>
-        <v-text-field
-          append-icon="mdi-target"
-          label="search"
-          class="hidden-sm-and-down"
-          flat
-          solo-inverted
-          hide-details
-          v-model="q"
-        ></v-text-field>
+          :clipped-left="$vuetify.breakpoint.lgAndUp"
+          app
+          color="#038AFF"
+          dark
+        >
+          <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
+          <v-spacer></v-spacer>
+
+          <img src="./img/pharma.png" class="image-title"/>
         <v-spacer></v-spacer>
 
         <v-btn icon large class="mr-1">
@@ -158,6 +152,12 @@
     </v-container>
       
       </v-content>
+      <v-footer padless>
+        <v-col class="text-center" cols="12">
+          All rights reserved © {{ new Date().getFullYear() }} —
+          <strong>KmAmin</strong>
+        </v-col>
+      </v-footer>
     
   
 

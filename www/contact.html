@@ -27,13 +27,16 @@
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
   </head>
   <body>
-    <div id="app">
+    <div id="app" class="draw">
       <div class="cont" v-if="load">
-        <div class="containeranim">
-          <div class="dot dot-1"></div>
-          <div class="dot dot-2"></div>
-          <div class="dot dot-3"></div>
-        </div>
+        <div class="load-wrapp">
+          <div class="load-3">
+              
+              <div class="line"></div>
+              <div class="line"></div>
+              <div class="line"></div>
+          </div>
+      </div>
       </div>
       <v-app dark>
         <v-navigation-drawer
@@ -96,13 +99,13 @@
         <v-app-bar
           :clipped-left="$vuetify.breakpoint.lgAndUp"
           app
-          color="#900c3e"
+          color="#038AFF"
           dark
         >
           <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
-          <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-            <span class="title">My PharamLocation</span>
-          </v-toolbar-title>
+          <v-spacer></v-spacer>
+
+          <img src="./img/pharma.png" class="image-title"/>
 
           <v-spacer></v-spacer>
 

@@ -15,6 +15,9 @@
     },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.pharmacie.io"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.pharmacie.io"
     }
   },
   "dependent_plugins": {}

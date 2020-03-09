@@ -68,6 +68,7 @@ new Vue({
           this.ouvert = true;
         }
       });
-    }
+    },
+    
   }
 });

@@ -1,13 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.pharmacie.io" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>myPharmaLocation</name>
+    <preference name="StatusBarBackgroundColor" value="#038AFF" />
     <platform name="android">
-    <splash src="www/img/myPharma.jpg" ></splash>
+     <preference name="SplashStatusBarBackgroundColor" value="#b83500" />
+    <preference name="SplashNavigationBarBackgroundColor" value="#b83500" />
+    
+    <splash src="www/img/splash.png" ></splash>
     </platform>
     <preference name="SplashScreen" value="screen">      
     </preference>
     <preference name="SplashScreenDelay" value="5000">
     </preference>
+    <preference name="StatusBarBackgroundColor" value="#038AFF" />
+    
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>

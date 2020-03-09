@@ -15,7 +15,10 @@ new Vue({
   data: {
     q: "",
     drawer: false,
-    option: { zoom: 13, center: { lat: 35.8060493, lng: 10.6106043 } },
+    option: {
+      zoom: 13,
+      center: { lat: 35.8060493, lng: 10.6106043 }
+    },
     items: [
       { icon: "mdi-contacts", text: "Contacts" },
       { icon: "mdi-content-copy", text: "Pharma" }
@@ -30,7 +33,8 @@ new Vue({
     load: true,
     text: "",
     snackbar: false,
-    ouvert: false
+    ouvert: false,
+    midNight: true
   },
   created() {
     this.getPlaces();
@@ -61,7 +65,8 @@ new Vue({
         ":" +
         currentdate.getSeconds();
       var ouv = 8 + ":" + 00 + ":" + 00;
-      var fer = "18:00:00";
+      var fer = "19:30:00";
+
       a = datetime.split(":");
       b = ouv.split(":");
       c = fer.split(":");
@@ -69,9 +74,12 @@ new Vue({
       var seconds = +a[0] * 60 * 60 + +a[1] * 60 + +a[2];
       var seconds1 = +b[0] * 60 * 60 + +b[1] * 60 + +b[2];
       var seconds2 = +c[0] * 60 * 60 + +c[1] * 60 + +c[2];
+
       if (seconds > seconds1 && seconds < seconds2) {
         this.ouvert = true;
+        this.midNight = false;
       }
+
       for (i = 0; i < this.places.length; i++) {
         if (this.places[i].ouvre != 24) {
           var touvert = this.places[i].ouvre;
@@ -80,38 +88,55 @@ new Vue({
           e = tferme.split(":");
           var seconds3 = +d[0] * 60 * 60 + +d[1] * 60;
           var seconds4 = +e[0] * 60 * 60 + +e[1] * 60;
-          if (seconds > seconds3 && seconds < seconds4) {
-            marker = new google.maps.Marker({
-              position: new google.maps.LatLng(
-                this.places[i].x,
-                this.places[i].y
-              ),
-              map: this.map,
-              title: "pharmacie " + this.places[i].name,
-              icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
-            });
+          if (seconds > seconds3 && seconds < seconds4 && this.ouvert) {
+            this.markerFun(
+              this.places[i].x,
+              this.places[i].y,
+              this.map,
+              this.places[i].name,
+              "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+            );
+          } else if (
+            seconds < seconds3 &&
+            seconds < seconds4 &&
+            this.places[i].cat == "nuit"
+          ) {
+            this.markerFun(
+              this.places[i].x,
+              this.places[i].y,
+              this.map,
+              this.places[i].name,
+              "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+            );
+          }else if (
+            seconds > seconds3 &&
+            seconds > seconds4 &&
+            this.places[i].cat == "nuit"
+          ) {
+            this.markerFun(
+              this.places[i].x,
+              this.places[i].y,
+              this.map,
+              this.places[i].name,
+              "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+            );
           } else {
-            marker = new google.maps.Marker({
-              position: new google.maps.LatLng(
-                this.places[i].x,
-                this.places[i].y
-              ),
-              map: this.map,
-              title: "pharmacie " + this.places[i].name,
-              icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
-            });
+            this.markerFun(
+              this.places[i].x,
+              this.places[i].y,
+              this.map,
+              this.places[i].name,
+              "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+            );
           }
         } else {
-          
-          marker = new google.maps.Marker({
-            position: new google.maps.LatLng(
-              this.places[i].x,
-              this.places[i].y
-            ),
-            map: this.map,
-            title: "pharmacie " + this.places[i].name,
-            icon: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
-          });
+          this.markerFun(
+            this.places[i].x,
+            this.places[i].y,
+            this.map,
+            this.places[i].name,
+            "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+          );
         }
 
         this.infoWindow();
@@ -120,14 +145,13 @@ new Vue({
       navigator.geolocation.getCurrentPosition(position => {
         this.src = position.coords.latitude;
         this.des = position.coords.longitude;
-
-        var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(this.src, this.des),
-          title: "current position",
-          map: this.map,
-          icon:
-            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
-        });
+        this.markerFun(
+          this.src,
+          this.des,
+          this.map,
+          "current position",
+          "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+        );
       });
     },
     getPlaces() {
@@ -143,6 +167,7 @@ new Vue({
           this.places = keys.map(key => {
             return places[key];
           });
+
           this.initMap();
         },
         data => {
@@ -160,15 +185,14 @@ new Vue({
         this.distance +
         "km ";
       console.log(this.places);
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(
-          this.places[this.closest].x,
-          this.places[this.closest].y
-        ),
-        title: this.places[this.closest].name,
-        map: this.map,
-        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-      });
+
+      this.markerFun(
+        this.places[this.closest].x,
+        this.places[this.closest].y,
+        this.map,
+        this.places[this.closest].name,
+        "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+      );
 
       this.places.splice(this.closest, 1);
       console.log(this.places);
@@ -204,6 +228,14 @@ new Vue({
         }
       }
       this.distance = minDif.toFixed(2);
+    },
+    markerFun(a, b, c, d, str) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(a, b),
+        map: c,
+        title: "pharmacie " + d,
+        icon: str
+      });
     }
     // calculRoute() {
     //   var directionDisplay = new google.maps.DirectionsRenderer();

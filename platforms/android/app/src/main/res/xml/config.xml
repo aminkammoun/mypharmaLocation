@@ -11,6 +11,10 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
     <name>myPharmaLocation</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -26,9 +30,12 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <splash src="www/img/myPharma.jpg" />
+    <splash src="www/img/splash.png" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="5000" />
+    <preference name="StatusBarBackgroundColor" value="#038AFF" />
+    <preference name="SplashStatusBarBackgroundColor" value="#b83500" />
+    <preference name="SplashNavigationBarBackgroundColor" value="#b83500" />
 </widget>
