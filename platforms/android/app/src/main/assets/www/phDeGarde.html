@@ -42,75 +42,8 @@
         </div>
 
     <v-app dark>
-      <v-navigation-drawer
-        v-model="drawer"
-        class="elevation-1 grey lighten-5"
-        :clipped="$vuetify.breakpoint.lgAndUp"
-        app
-      >
-        <v-list dense>
-          <template>
-            
-            <v-list-item link>
-              
-              <v-list-item-content>
-                <v-list-item-title>
-                  <a href="index.html">Home </a>
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider></v-divider>
-            <v-list-item :class="{ouvertstyle :ouvert, 'closestyle': !ouvert}" link>
-              
-              <v-list-item-content>
-                <v-list-item-title>
-                  <a href="phDeJour.html">les pharmacies de jour </a> <span>.</span>
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider></v-divider>
-            <v-list-item :class="{ouvertstyle :!ouvert, 'closestyle': ouvert}" link>
-              
-              <v-list-item-content>
-                <v-list-item-title>
-                  <a href="phDeNuit.html">les pharmacies de nuit</a><span>.</span>
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider></v-divider>
-            <v-list-item class="garde" link>
-              
-              <v-list-item-content>
-                <v-list-item-title>
-                  <a href="phDeGarde.html">les pharmacies de Garde </a> <span>.</span><span>.</span><span>.</span>
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-divider></v-divider>
-            <v-list-item link>
-              
-              <v-list-item-content>
-                <v-list-item-title>
-                  <a id="contact-page" href="contact.html">Contacts </a>
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            
-          </template>
-        </v-list>
-      </v-navigation-drawer>
-      <v-app-bar
-          :clipped-left="$vuetify.breakpoint.lgAndUp"
-          app
-          color="#038AFF"
-          dark
-        >
-          <v-icon @click.stop="drawer = !drawer">mdi-menu</v-icon>
-          <v-spacer></v-spacer>
-
-          <img src="./img/pharma.png" class="image-title"/>
-        <v-spacer></v-spacer>
-
+      
+      <v-app-bar app color="#038AFF" dark>
         <v-btn icon large class="mr-1">
           <v-avatar size="40px" item>
             <v-img
@@ -118,6 +51,48 @@
               alt="Vuetify"
           /></v-avatar>
         </v-btn>
+
+        <v-spacer></v-spacer>
+
+        <img src="./img/pharma.png" class="image-title" />
+
+        <v-spacer></v-spacer>
+        <header>
+          <input type="checkbox" id="menu" @click.stop="drawer = !drawer" />
+          <label for="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+
+          <nav v-model="drawer">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <v-divider></v-divider>
+              <div>
+                <li :class="{ouvertstyle :ouvert, 'closestyle': !ouvert}">
+                  <a href="phDeJour.html">
+                    pharmacies de jour
+                  </a>
+                </li>
+              </div>
+              <v-divider></v-divider>
+              <div>
+                <li :class="{ouvertstyle :!ouvert, 'closestyle': ouvert}">
+                  <a href="phDeNuit.html">les pharmacies de nuit</a>
+                </li>
+              </div>
+              <v-divider></v-divider>
+              <li>
+                <a href="#" onclick.stop="drawer = !drawer">
+                  pharmacies de garde</a
+                >
+              </li>
+              <v-divider></v-divider>
+              <li><a id="contact-page" href="contact.html">Contacts </a></li>
+            </ul>
+          </nav>
+        </header>
       </v-app-bar>
       
       <v-content >
