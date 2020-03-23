@@ -1,7 +1,4 @@
-#app {
-  background: #e7dfdd no-repeat center center;
-  background-size: cover;
-}
+
 a {
   padding: 14px 25px;
   text-align: center;
@@ -189,5 +186,15 @@ main {
 .v-application a {
   color: #000000;
 }
-
-
+.v-list-item__content {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1;
+  overflow: hidden;
+  margin: 11px 0px;
+  padding: 12px 0px;
+  background-color: #038aff;
+  border-radius: 22px;
+}
