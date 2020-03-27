@@ -103,9 +103,7 @@
       <template v-for="(time, index) in times">
         <v-list-item
         v-if="time.cat == 'nuit'"
-          :key="index"
-          @click=""
-          
+          :key="index"  
         >
           <v-list-item-content outlined>
             <v-card-actions>
@@ -117,10 +115,13 @@
             <v-card-actions>
               N° telephone : {{time.tel}}
             </v-card-actions>
+            <v-btn :try="id[index]" color="success" @click="getStock(id[index])"> <a href="afficheStock.html">show stock</a>  </v-btn>
+            <v-divider></v-divider>
           </v-list-item-content>
           
+          
         </v-list-item>
-        <v-divider></v-divider>
+        
       </template>
     </v-list>
       </div>

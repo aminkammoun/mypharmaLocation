@@ -12,13 +12,17 @@ new Vue({
   el: "#app",
   vuetify: new Vuetify(),
   data: {
+    show: false,
+    try: "",
     loader: null,
     loading: false,
     q: "",
+    id: [],
     drawer: false,
     load: true,
     times: [],
-    ouvert: false
+    ouvert: false,
+    stocks: []
   },
   watch: {
     loader() {
@@ -37,6 +41,22 @@ new Vue({
     }, 3000);
   },
   methods: {
+    getStock(num) {
+      var db = firebase
+        .database()
+        .ref()
+        .child(`coord/${num}/stock`);
+      db.on("value", data => {
+        var tab = data.val();
+        var keys = Object.keys(tab);
+        this.stocks = keys.map(key => {
+          return tab[key];
+        });
+      });
+      var val = JSON.stringify(this.stocks);
+      window.localStorage.setItem("key", val);
+      
+    },
     getpha() {
       var db = firebase
         .database()
@@ -45,7 +65,10 @@ new Vue({
       db.on("value", data => {
         var tab = data.val();
         var keys = Object.keys(tab);
+
         this.times = keys.map(key => {
+          this.id.push(key);
+
           return tab[key];
         });
         var currentdate = new Date();
@@ -68,7 +91,6 @@ new Vue({
           this.ouvert = true;
         }
       });
-    },
-    
+    }
   }
 });

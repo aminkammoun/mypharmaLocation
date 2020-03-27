@@ -9,10 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
       rel="stylesheet"
     />
-    <link
-      href="./css/vuetify.min.css"
-      rel="stylesheet"
-    />
+    <link href="./css/vuetify.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/index.css" />
     <style>
       #map {
@@ -31,15 +28,13 @@
       <div class="cont" v-if="load">
         <div class="load-wrapp">
           <div class="load-3">
-              
-              <div class="line"></div>
-              <div class="line"></div>
-              <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
           </div>
-      </div>
+        </div>
       </div>
       <v-app dark>
-        
         <v-app-bar app color="#038AFF" dark>
           <v-btn icon large class="mr-1">
             <v-avatar size="40px" item>
@@ -64,7 +59,7 @@
 
             <nav v-model="drawer">
               <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <v-divider></v-divider>
                 <div>
                   <li :class="{ouvertstyle :ouvert, 'closestyle': !ouvert}">
@@ -81,9 +76,7 @@
                 </div>
                 <v-divider></v-divider>
                 <li>
-                  <a href="phDeNuit.html">
-                    pharmacies de garde</a
-                  >
+                  <a href="phDeGarde.html"> pharmacies de garde</a>
                 </li>
                 <v-divider></v-divider>
                 <li><a id="contact-page" href="contact.html">Contacts </a></li>
@@ -176,8 +169,6 @@
       </v-footer>
     </div>
   </body>
-  
-  
+
   <script src="./js/contact.js"></script>
-  
 </html>

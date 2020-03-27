@@ -97,19 +97,12 @@
       <v-content>
         <h1>  Liste des pharmacie de jour</h1>
         <v-container>
-        
       <div>
         <v-subheader
-        >Today</v-subheader>
+        >ce jour</v-subheader>
          <v-list three-line>
-      <template v-for="(time, index) in times">
-        <v-list-item
-        v-if="time.cat == 'jour'"
-          :key="index"
-          @click=""
-          outline
-        >
-          <v-list-item-content py-2>
+          <v-list-item-content v-for="(time, index) in times"
+          v-if="time.cat == 'jour'" py-2>
             <v-card-actions>
               nom de pharmacie : {{time.name}}
             </v-card-actions>
@@ -119,10 +112,11 @@
             <v-card-actions>
               N° telephone : {{time.tel}}
             </v-card-actions>
+            <v-btn :try="id[index]" color="success" @click="getStock(id[index])"> <a href="afficheStock.html">show stock</a>  </v-btn>
           </v-list-item-content>
-        </v-list-item>
+        
         <v-divider></v-divider>
-      </template>
+      
     </v-list>
       </div>
     </vcontainer>

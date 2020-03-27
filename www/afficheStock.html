@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="./css/vuetify.min.css" rel="stylesheet" />
+
+    <style>
+      #map {
+        height: 800px;
+        width: 100%;
+      }
+    </style>
+    <script src="./config/js/vuefire.js"></script>
+    <script src="./config/js/firebase.js"></script>
+    <script src="./config/js/axios.min.js"></script>
+    <script src="./config/js/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <v-content>
+        <v-container centered>
+          <template>
+            <v-expansion-panels>
+              <v-expansion-panel v-for="(stock,i) in stocks" :key="i">
+                <v-expansion-panel-header>
+                  <v-row>
+                    <v-col cols="12" md="12">
+                      {{stock.NamePha}}
+                    </v-col>
+                    <v-col cols="12" md="12">
+                      date : {{stock.date}}
+                    </v-col>
+                  </v-row>
+                </v-expansion-panel-header>
+
+                <v-expansion-panel-content>
+                  {{stock.Description}}
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </template>
+          <!-- <v-row v-for="stock in stocks" class="pt-2">
+            <v-col cols="12" md="6">
+              <v-card class="mx-auto" max-width="344">
+                <v-img
+                  src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                  height="200px"
+                ></v-img>
+
+                <v-card-title>
+                  {{stock.NamePha}}
+                </v-card-title>
+
+                <v-card-subtitle>
+                  Stock : {{stock.Stock}}
+                </v-card-subtitle>
+                <v-card-subtitle>
+                  Date : {{stock.date}}
+                </v-card-subtitle>
+
+                <v-card-actions>
+                  <v-btn text>Share</v-btn>
+
+                  <v-btn color="purple" text>
+                    Explore
+                  </v-btn>
+
+                  <v-spacer></v-spacer>
+
+                  <v-btn icon @click="show = !show">
+                    <v-icon
+                      >{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down'
+                      }}</v-icon
+                    >
+                  </v-btn>
+                </v-card-actions>
+
+                <v-expand-transition>
+                  <div v-show="show">
+                    <v-divider></v-divider>
+
+                    <v-card-text>
+                      {{stock.Description}}
+                    </v-card-text>
+                  </div>
+                </v-expand-transition>
+              </v-card>
+            </v-col>
+          </v-row> -->
+        </v-container>
+      </v-content>
+    </div>
+  </body>
+  <script src="./js/Stock.js"></script>
+</html>
