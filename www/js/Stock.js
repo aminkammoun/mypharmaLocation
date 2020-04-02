@@ -23,6 +23,9 @@ new Vue({
     getId() {
       this.stocks = JSON.parse(window.localStorage.getItem("key"));
       console.log(this.stocks);
+    },
+    goBack() {
+      window.history.back();
     }
   }
 });

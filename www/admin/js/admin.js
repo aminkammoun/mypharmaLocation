@@ -17,7 +17,10 @@ new Vue({
     select: "",
     stock: "",
     date: "",
-    description: ""
+    NomMed: "",
+    description: "",
+    snackbar: false,
+    text: "please fill all the field"
   },
 
   created() {
@@ -27,10 +30,16 @@ new Vue({
     stockForm(e) {
       e.preventDefault();
 
-      this.saveStock(this.select, this.stock, this.date, this.description);
+      this.saveStock(
+        this.select,
+        this.NomMed,
+        this.stock,
+        this.date,
+        this.description
+      );
     },
 
-    saveStock(namePha, stock, date, Decription) {
+    saveStock(namePha, NomMed, stock, date, Decription) {
       var query = firebase
         .database()
         .ref("/coord")
@@ -39,10 +48,17 @@ new Vue({
       query.once("value", data => {
         data.forEach(userSnapshot => {
           let key = userSnapshot.key;
-          if ((name != "" && lastname != "" && Email != "", Decription != "")) {
+          if (
+            namPha != "" &&
+            NomMed != "" &&
+            stock != "" &&
+            date != "" &&
+            Description != ""
+          ) {
             var contactRef = firebase.database().ref(`coord/${key}/stock`);
             var data = {
               NamePha: namePha,
+              NomMed: NomMed,
               Stock: stock,
               date: date,
               Description: Decription
