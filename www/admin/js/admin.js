@@ -5,7 +5,7 @@ var config = {
   projectId: "pharmaposition-a230d",
   storageBucket: "pharmaposition-a230d.appspot.com",
   messagingSenderId: "1014214233603",
-  Id: "1:1014214233603:web:edb23cb53200911017c836"
+  Id: "1:1014214233603:web:edb23cb53200911017c836",
 };
 firebase.initializeApp(config);
 new Vue({
@@ -20,7 +20,7 @@ new Vue({
     NomMed: "",
     description: "",
     snackbar: false,
-    text: "please fill all the field"
+    text: "please fill all the field",
   },
 
   created() {
@@ -34,25 +34,23 @@ new Vue({
         this.select,
         this.NomMed,
         this.stock,
-        this.date,
         this.description
       );
     },
 
-    saveStock(namePha, NomMed, stock, date, Decription) {
+    saveStock(namePha, NomMed, stock, Description) {
       var query = firebase
         .database()
         .ref("/coord")
         .orderByChild("name")
         .equalTo(this.select);
-      query.once("value", data => {
-        data.forEach(userSnapshot => {
+      query.once("value", (data) => {
+        data.forEach((userSnapshot) => {
           let key = userSnapshot.key;
           if (
-            namPha != "" &&
+            namePha != "" &&
             NomMed != "" &&
             stock != "" &&
-            date != "" &&
             Description != ""
           ) {
             var contactRef = firebase.database().ref(`coord/${key}/stock`);
@@ -60,8 +58,7 @@ new Vue({
               NamePha: namePha,
               NomMed: NomMed,
               Stock: stock,
-              date: date,
-              Description: Decription
+              Description: Description,
             };
 
             contactRef.push(data);
@@ -73,17 +70,14 @@ new Vue({
     },
 
     getpha() {
-      var db = firebase
-        .database()
-        .ref()
-        .child("coord/");
-      db.on("value", data => {
+      var db = firebase.database().ref().child("coord/");
+      db.on("value", (data) => {
         var tab = data.val();
         var keys = Object.keys(tab);
-        this.items = keys.map(key => {
+        this.items = keys.map((key) => {
           return tab[key].name;
         });
       });
-    }
-  }
+    },
+  },
 });

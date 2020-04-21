@@ -118,3 +118,9 @@ main {
     transform: scale(1);
   }
 }
+.previous {
+  padding-left: 30px;
+  width: 68px;
+  height: 32px;
+  margin-top: 17px;
+}
