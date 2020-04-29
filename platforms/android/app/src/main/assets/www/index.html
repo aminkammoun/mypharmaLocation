@@ -32,7 +32,7 @@
       </div>
 
       <v-app dark>
-        <v-app-bar app color="#038AFF" dark>
+        <v-app-bar flat app color="#2bb673">
           <div id="menu-bar">
             <div id="menu" onclick="onClickMenu()">
               <div id="bar1" class="bar"></div>
@@ -50,7 +50,6 @@
           <div class="menu-bg" id="menu-bg"></div>
 
           <v-spacer></v-spacer>
-
           <img src="./img/pharma.png" class="image-title" />
 
           <v-spacer></v-spacer>
@@ -60,7 +59,7 @@
           <v-btn
             title="get the closest"
             bottom
-            color="#038AFF"
+            color="#38ca89"
             dark
             fab
             fixed
@@ -99,12 +98,12 @@
     ></script>
     <script src="js/multiMarker.js"></script>
     <script type="text/javascript">
-    function onClickMenu() {
-      document.getElementById("menu").classList.toggle("change");
-      document.getElementById("nav").classList.toggle("change");
+      function onClickMenu() {
+        document.getElementById("menu").classList.toggle("change");
+        document.getElementById("nav").classList.toggle("change");
 
-      document.getElementById("menu-bg").classList.toggle("change-bg");
-    }
-  </script>
+        document.getElementById("menu-bg").classList.toggle("change-bg");
+      }
+    </script>
   </body>
 </html>

@@ -16,13 +16,15 @@
         <param name="onload" value="true" />
     </feature>
     <name>myPharmaLocation</name>
+    <preference name="SplashScreen" src="www/img/splash.png">
+    </preference>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="Aminekammoun55@gmail.com" href="http://cordova.io">
+        Amine Kammoun
     </author>
-    <content src="index.html" />
+    <content src="home.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -30,12 +32,10 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <splash src="www/img/splash.png" />
+    <icon src="./www/img/istockphoto-1208199298-170x170.jpg" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="5000" />
-    <preference name="StatusBarBackgroundColor" value="#038AFF" />
-    <preference name="SplashStatusBarBackgroundColor" value="#b83500" />
-    <preference name="SplashNavigationBarBackgroundColor" value="#b83500" />
+    <preference name="SplashScreenBackgroundColor" value="#2bb673" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="StatusBarBackgroundColor" value="#2bb673" />
 </widget>

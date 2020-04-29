@@ -1,5 +1,6 @@
 #app {
   font-family: "PT Sans", sans-serif;
+  background-color: #f2f1f9;
 }
 #menu {
   width: 35px;
@@ -11,7 +12,7 @@
 .bar {
   height: 5px;
   width: 100%;
-  background-color: #ffffff;
+  background: #ffffff;
   display: block;
   border-radius: 5px;
   transition: 0.3s ease;
@@ -22,8 +23,8 @@
 #bar3 {
   transform: translateY(4px);
 }
-.nav li a {
-  color: #fff;
+a {
+  color: #fff !important;
   text-decoration: none;
 }
 .nav li a:hover {
@@ -50,7 +51,7 @@
   width: 0;
   height: 0;
   margin: 30px 0 20px 20px;
-  background: radial-gradient(circle, #038aff, #038aff);
+  background: #2bb673;
   border-radius: 50%;
   transition: 0.3s ease;
 }
@@ -76,4 +77,33 @@
 }
 .change {
   display: block;
+}
+.test {
+  padding: 0;
+  margin: 0;
+  background-color: #caebe5;
+  width: 100%;
+}
+.introduction {
+  margin-top: 79px;
+}
+.search {
+  left: 15%;
+  position: absolute;
+  margin-top: -30px;
+  width: 70%;
+}
+.cll {
+  margin-top: 32px;
+}
+
+.in {
+  position: absolute;
+  top: 274px;
+  left: 5%;
+  width: 90%;
+}
+.image-intro {
+  max-width: 100%;
+  max-height: 100%;
 }

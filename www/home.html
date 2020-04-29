@@ -36,7 +36,7 @@
         </div>
       </div>
       <v-app dark>
-        <v-app-bar app color="#038AFF" dark>
+        <v-app-bar flat app color="#caebe5" elevate-on-scroll>
           <div id="menu-bar">
             <div id="menu" onclick="onClickMenu()">
               <div id="bar1" class="bar"></div>
@@ -52,80 +52,50 @@
             </ul>
           </div>
           <div class="menu-bg" id="menu-bg"></div>
-
-          <v-spacer></v-spacer>
-
-          <img src="./img/pharma.png" class="image-title" />
-
-          <v-spacer></v-spacer>
         </v-app-bar>
         <v-content>
-          <v-container>
-            <h1 class="title py-4">
-              contact us
-            </h1>
-            <v-divider></v-divider>
-            <v-form>
+          <div class="test">
+            <img class="image-intro" src="./img/intro.jpg"/>
+
+            <v-text-field
+              class="in"
+              label="Solo"
+              single-line
+              rounded
+              solo
+              append-icon="mdi-arrow-right-bold-circle"
+            ></v-text-field>
+          </div>
+          <v-content>
+            <v-container mt-5>
               <v-row>
-                <v-col cols="12" md="6">
-                  <v-text-field
-                    id="Name"
-                    label="name"
-                    hide-details
-                    outlined
-                    v-model="name"
-                  ></v-text-field>
+                <v-col cols="12" md="6" sm="6" xs="6">
+                  <div>
+                    <img
+                      src="./img/istockphoto-1208199298-170x170.jpg"
+                      alt=""
+                    />
+                    <p mt-5>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Dignissimos velit cupiditate iste ut facere.
+                    </p>
+                  </div>
                 </v-col>
-                <v-col cols="12" md="6">
-                  <v-text-field
-                    hide-details
-                    id="lastName"
-                    label="lastname"
-                    outlined
-                    v-model="lastname"
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col cols="12" md="12">
-                  <v-text-field
-                    hide-details
-                    id="Email"
-                    label="Email"
-                    outlined
-                    v-model="mail"
-                  ></v-text-field>
+                <v-col cols="12" md="6" sm="6" xs="6">
+                  <div>
+                    <img
+                      src="./img/istockphoto-1208199298-170x170.jpg"
+                      alt=""
+                    />
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Dignissimos velit cupiditate iste ut facere.
+                    </p>
+                  </div>
                 </v-col>
               </v-row>
-              <v-file-input
-                hide-details
-                label="File input"
-                filled
-                prepend-icon="mdi-camera"
-              ></v-file-input>
-              <v-row
-                ><v-col cols="12" md="12">
-                  <v-textarea
-                    id="Des"
-                    hide-details
-                    outlined
-                    name="input-7-4"
-                    label="describ your need here"
-                    v-model="description"
-                  ></v-textarea>
-                </v-col>
-              </v-row>
-              <v-btn class="button" @click="contactForm">
-                declare
-              </v-btn>
-              <v-snackbar v-model="snackbar">
-                {{ text }}
-                <v-btn color="pink" text @click="snackbar = false">
-                  Close
-                </v-btn>
-              </v-snackbar>
-            </v-form>
-          </v-container>
+            </v-container>
+          </v-content>
         </v-content>
       </v-app>
       <v-footer padless>

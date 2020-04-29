@@ -37,7 +37,7 @@
       </div>
 
       <v-app dark>
-        <v-app-bar app color="#038AFF" dark>
+        <v-app-bar  flat app color="#2bb673">
           <div id="menu-bar">
             <div id="menu" onclick="onClickMenu()">
               <div id="bar1" class="bar"></div>
@@ -61,44 +61,44 @@
           <v-spacer></v-spacer>
         </v-app-bar>
         <v-content>
-          <v-container>
-            <h1>Liste des pharmacies de jour</h1>
-            <v-subheader>ce jour</v-subheader>
-
-            <v-list three-line>
-              <v-card class="mt-5" v-for="(time, index) in times">
-                <v-list-item-content v-if="time.cat == 'jour'" py-2>
-                  <v-row>
-                    <v-col cols="12" md="6">
-                      <v-card-actions>
-                        nom de pharmacie : {{time.name}}
-                      </v-card-actions>
-                      <v-card-actions>
-                        temps de travail : {{time.ouvre}} h - {{time.ferme}} h
-                      </v-card-actions>
-                      <v-card-actions>
-                        N° telephone : {{time.tel}}
-                      </v-card-actions>
-                    </v-col>
-
-                    <v-col cols="12" md="6">
-                      <a href="afficheStock.html">
-                        <v-btn
-                          :try="id[index]"
-                          class="stock-buton"
-                          @click="getStock(id[index])"
-                        >
-                          show stock
-                        </v-btn>
-                      </a>
-                    </v-col>
-                  </v-row>
-                </v-list-item-content>
-              </v-card>
-            </v-list>
-
-            <v-divider></v-divider>
-          </v-container>
+          <h1>Liste des pharmacies de jour</h1>
+          <div class="fade-in" v-for="(time, index) in times">
+            <v-container grid-list-xs v-if="time.cat == 'jour'">
+              <v-list three-line>
+                <v-card>
+                  <v-list-item-content py-2>
+                    <v-row>
+                      <v-col cols="12" md="3">
+                        <v-img height="120px" :src="time.imageURL"> </v-img>
+                      </v-col>
+                      <v-col cols="12" md="9">
+                        <v-card-actions>
+                          <h3>pharmacie de: {{time.name}}</h3>
+                        </v-card-actions>
+                        <v-card-actions>
+                          <v-icon>mdi-home</v-icon>Address : {{time.adress}}
+                        </v-card-actions>
+                        <v-card-actions>
+                          <v-icon>mdi-clock</v-icon>Temps de travail :
+                          {{time.ouvre}} h - {{time.ferme}} h
+                        </v-card-actions>
+                        <v-card-actions>
+                          <v-icon>mdi-phone</v-icon>
+                          n° telephone : {{time.tel}}
+                        </v-card-actions>
+                        <v-card-actions>
+                          
+                          <v-btn class="button" rounded @click="getStock(id[index])">
+                            <a href="afficheStock.html">show stock</a>
+                          </v-btn>
+                        </v-card-actions>
+                      </v-col>
+                    </v-row>
+                  </v-list-item-content>
+                </v-card>
+              </v-list>
+            </v-container>
+          </div>
         </v-content>
         <v-footer padless>
           <v-col class="text-center" cols="12">

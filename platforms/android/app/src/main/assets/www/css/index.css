@@ -1,42 +1,3 @@
-.garde {
-  background-color: #f7d84dd8;
-}
-@keyframes blink {
-  0% {
-    opacity: 0.2;
-  }
-
-  20% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.2;
-  }
-}
-
-.garde span {
-  animation-name: blink;
-  animation-duration: 1.4s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-}
-
-.garde span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.garde span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-.ouvertstyle span {
-  color: #00ff00;
-  animation-name: blink;
-  animation-duration: 1.4s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-}
 .image-title {
   padding-top: 6px;
 }
@@ -80,7 +41,7 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #038aff;
+  background: #38ca89;
   z-index: 9;
 }
 .declarebutton {
@@ -97,9 +58,6 @@ main {
 .liste-ph {
   margin-right: 0px;
   margin-left: 0px;
-}
-.stock-buton {
-  background-color: #038aff !important;
 }
 .bounce-enter-active {
   animation: bounce-in 0.5s;
@@ -123,4 +81,25 @@ main {
   width: 68px;
   height: 32px;
   margin-top: 17px;
+}
+.button {
+  width: 100%;
+  margin-bottom: -23px;
+  background-color: #38ca89 !important;
+}
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.8s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

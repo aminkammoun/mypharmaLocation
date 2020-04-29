@@ -115,16 +115,8 @@
                   ></v-textarea>
                 </v-col>
               </v-row>
-              <v-btn
-                :loading="loading"
-                :disabled="loading"
-                color="#038AFF"
-                class="declareButton"
-                @click="contactForm"
-              >
-                <span color="white">
-                  declare
-                </span>
+              <v-btn class="button" @click="contactForm">
+                declare
               </v-btn>
               <v-snackbar v-model="snackbar">
                 {{ text }}
